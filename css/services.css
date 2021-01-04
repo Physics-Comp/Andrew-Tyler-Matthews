@@ -1,0 +1,63 @@
+a
+{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  text-decoration: none;
+  margin: 10px 20px;
+}
+.Background{
+  margin:0 auto 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.Background-Title{
+  font-family: 'Atomic Age';
+  margin:0 auto 0 auto;
+  color: #0d7377;
+  margin-top:3%;
+  font-weight:bold;
+  font-size:30px;
+}
+.Background-Horizontal-Rule{
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #fc5185;
+  border-width: 5px;
+  width: 15%;
+}
+.Services-Container{
+  margin:0% 4%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.font-change{
+  font-family: 'Share Tech Mono';
+}
+.button-change{
+  background-color:#0d7377;
+  font-family: 'Share Tech Mono';
+}
+.bottom-container{
+  margin:0;
+  padding: 0;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: 'Atomic Age';
+  background-color:#e4f9f5;
+}
+.bottom-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 30px;
+  color: #0d7377;
+}
+.img-tut{
+  height: 220px;
+}
+.img-code{
+  height: 220px;
+}
+.img-data{
+  height: 220px;
+}

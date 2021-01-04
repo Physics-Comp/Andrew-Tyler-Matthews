@@ -1,0 +1,165 @@
+a
+{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  text-decoration: none;
+  margin: 10px 20px;
+}
+
+/* Background Heading */
+.Background{
+  margin:0 auto 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.Background-Title{
+  font-family: 'Atomic Age';
+  margin:0 auto 0 auto;
+  color: #0d7377;
+  padding-top: 25px;
+  font-weight:bold;
+  font-size:30px;
+}
+.Background-Horizontal-Rule{
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #fc5185;
+  border-width: 5px;
+  width: 15%;
+}
+/* Education Header */
+.Education-Header{
+  font-family: 'Atomic Age';
+  margin:0% 10%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+/* Styling for the containing education credentials */
+.Education-Container{
+  margin:0% 13%;
+}
+/* Bottom Padding for University Section */
+.University{
+  padding-bottom: 100px;
+}
+/* University of Colorado at Boulder Title */
+.University-Header{
+  font-family: 'Atomic Age';
+  font-size:20px;
+  margin-right: 15%;
+}
+/* Date at the University */
+.Date-of-Attendence{
+  font-family: 'Atomic Age';
+  font-size:15px;
+}
+/* Description Education CU  */
+.Education-Description{
+  margin-right: 80px;
+  font-family: 'Share Tech Mono';
+}
+/* Header for Academy of Environmental Sceince */
+.Academy-Header{
+  font-family: 'Atomic Age';
+  font-size:20px;
+  padding-right:10%;
+}
+/* Description of Education at Academy */
+.Education-at-Academy{
+  font-family: 'Share Tech Mono';
+  margin-right: 80px;
+}
+
+/* ----------------------------------------------- */
+
+/* The Carrer Section */
+/* Career Header Title */
+.Career_Title{
+  font-family: 'Atomic Age';
+  margin:0% 10%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+.Career-Container{
+  margin:0% 13%;
+}
+.Job-Header{
+  font-family: 'Atomic Age';
+  font-size:20px;
+  margin-right: 20%;
+}
+.Job-Header-Freelance{
+  margin-right: 10%;
+  font-family: 'Atomic Age';
+  font-size:20px;
+}
+.Job-Subheading{
+  font-family: 'Atomic Age';
+  font-size:15px;
+  padding-right:20%;
+}
+.Job-Description{
+  margin-right:80px;
+  font-family: 'Share Tech Mono';
+}
+.Description-of-Duties{
+  padding-bottom: 100px;
+}
+/* -------------------------------------------------- */
+/* Abilities */
+/* Abilities Header */
+.Abilities-Heading{
+  font-family: 'Atomic Age';
+  margin:0 auto 0 auto;
+  color: #0d7377;
+  padding-top: 25px;
+  font-weight:bold;
+  font-size:30px;
+}
+
+/* Skills Header */
+.Skills-Header{
+  font-family: 'Atomic Age';
+  margin:0% 15%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+.Skills-Container{
+  margin:0% 18%;
+}
+.Skill-Title{
+  padding-right: 20%;
+  font-family: 'Share Tech Mono';
+}
+.Star-Color{
+  color: #0d7377;
+}
+.List-of-Skills{
+  padding-bottom: 50px;
+  padding-right: 15%;
+}
+.bottom-container{
+  margin:0;
+  padding: 0;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: 'Atomic Age';
+  background-color:#e4f9f5;
+}
+.bottom-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 30px;
+  color: #0d7377;
+}
+
+.Seperation{
+  width: 100%
+}

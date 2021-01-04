@@ -1,0 +1,286 @@
+
+                            /* HTML Elements */
+body
+{
+  margin:0;
+  padding: 0;
+  text-align: center;
+  background-color:#f5f5f5;
+
+}
+h1
+{
+  /* width: 20%; */
+  margin: 0 auto 0 auto; /*This centers the h1 element margin:(margin top, margin right,margin bottom,margin left) */
+}
+hr{
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #fc5185;
+  border-width: 5px;
+  width: 6%;
+}
+a{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  text-decoration: none;
+  margin: 10px 20px;
+}
+
+/* ______________________________HTLM Classes________________________________ */
+.skills{
+  padding-bottom: 5%;
+}
+.skill-row1{
+  width: 50%;
+  margin: 50px auto 100px auto;
+  text-align: left;
+  line-height: 2;
+}
+.skill-row2{
+  width: 50%;
+  margin: 150px auto 5px auto;
+  text-align: left;
+  line-height: 2;
+}
+.top-container {
+  background-color:#e4f9f5;
+  padding-top: 50px;
+}
+.middle-container{
+  background-color:#f5f5f5;
+}
+.bottom-container{
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: 'Atomic Age';
+  background-color:#e4f9f5;
+
+}
+.Introduction{
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+  color: #0d7377;
+  margin:0 auto 0 auto;
+
+}
+.Name{
+    font-family: 'Atomic Age';
+    font-size: 40px;
+    font-weight: normal;
+    color: #0d7377;
+    margin:0 auto 0 auto;
+}
+.Atom-1{
+    position: relative;
+    left: 40%;
+    top: 2%;
+}
+.Atom-2{
+    position: relative;
+    right: 40%;
+    bottom: 50%;
+}
+.Lab{
+  background-color: #e4f9f5;
+}
+.Personal-Photo{
+  border-radius: 50%;
+  margin-top: 60px;
+}
+.Greeting{
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+  color: #0d7377;
+  padding-top: 20px;
+}
+.Biography{
+  font-family: 'Share Tech Mono';
+}
+.profile{
+  width: 50%;
+  margin:auto;
+  padding-bottom: 30px;
+}
+.My-Skills{
+  padding-bottom: 20px;
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+  color: #0d7377;
+}
+.Subtitle-1{
+  font-family: 'Atomic Age';
+  font-size: 25px;
+  font-weight: normal;
+  color: #61c0bf;
+  width: 200px;
+  position: relative;
+  left: 630px;
+  bottom: 250px;
+}
+.Subtitle-1-Paragraph{
+  font-family: 'Share Tech Mono';
+  height: 100px;
+  width: 300px;
+  position: relative;
+  left: 600px;
+  text-align: left;
+  bottom: 260px;
+}
+.Subtitle-2{
+  color: #61c0bf;
+  font-family: 'Atomic Age';
+  font-size: 25px;
+  font-weight: normal;
+  width: 300px;
+  position: relative;
+  left: 283px;
+  bottom: 367px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  right: 0px;
+}
+
+.Subtitle-2-Paragraph{
+  width: 300px;
+  position: relative;
+  left: 283px;
+  bottom: 364px;
+  text-align: left;
+  font-family: 'Share Tech Mono';
+}
+.Get-In-Touch{
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+  color: #0d7377;
+}
+.bottom-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.Available-For-Freelance-Work{
+  color: #61c0bf;
+  font-family: 'Atomic Age';
+  font-size: 25px;
+  font-weight: normal;
+}
+.Main-Button-Link{
+  padding: 0.75em 2em .75em 3.5em;
+    text-align: center;
+    margin: 1.5em 0 0;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    background-color: #61c0bf;
+    -webkit-border-radius: 3px;
+    border-left-color: initial;
+    border-left-style: initial;
+    border-left-width: 0px;
+    font-family: 'Atomic Age';
+    font-size: 20px;
+    font-weight: normal;
+    color: #0d7377;
+    position: relative;
+    top: 20px;
+}
+.letter{
+  position: relative;
+  right: 129px;
+  top: -1px;
+}
+.footer-link-1{
+  position: relative;
+  right: 219px;
+  color: #0d7377;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+.footer-link-1:hover{
+  color: #61c0bf;
+}
+.footer-link-2{
+  color: #0d7377;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial
+}
+.footer-link-2:hover{
+  color: #61c0bf;
+}
+.footer-link-3{
+  position: relative;
+  left: 217px;
+  color: #0d7377;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial
+}
+.footer-link-3:hover{
+  color: #61c0bf;
+}
+.bottom-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+  top: 30px;
+  color: #0d7377;
+}
+.contact-me{
+  padding-bottom: 50px;
+  background-color:#f5f5f5;
+}
+.skills-pic{
+  /* width: 35%; */
+  float: left;
+  margin-right: 30px;
+}
+.calc{
+  /* width: 30%; */
+  float: right;
+  padding-bottom: 5%;
+  padding-left: 5%;
+}
+.My-skills{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+}
+.Skill-Set{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+}
+.skill-row1{
+  width: 70%;
+  margin: 5% 15% 5% 15%;
+  text-align: left;
+  line-height: 2;
+}
+.skill-row2{
+  width: 70%;
+  margin: 15% 15% 5% 15%;
+  text-align: left;
+  line-height: 2;
+}
+.Experience{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  font-size: 30px;
+  font-weight: normal;
+}
+.Skill-Set-Paragraph{
+  font-family: 'Share Tech Mono';
+}
+.Experince-Paragraph{
+  font-family: 'Share Tech Mono';
+}
+.Contact-Paragraph{
+font-family: 'Share Tech Mono';
+}

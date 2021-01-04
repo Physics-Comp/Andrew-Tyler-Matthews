@@ -1,0 +1,82 @@
+h1
+{
+  width: 20%;
+  margin: 0 auto 0 auto; /*This centers the h1 element margin:(margin top, margin right,margin bottom,margin left) */
+}
+a
+{
+  color: #0d7377;
+  font-family: 'Atomic Age';
+  text-decoration: none;
+  margin: 10px 20px;
+}
+
+/* Physics Section */
+.Physics-Header{
+  font-family: 'Atomic Age';
+  margin-left: 15%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+.Physics-Container{
+  margin:0% 13%;
+}
+.font-change{
+  font-family: 'Share Tech Mono';
+}
+.button-change{
+  background-color:#0d7377;
+  font-family: 'Share Tech Mono';
+}
+.atmos-body{
+  padding-top: 32px;
+}
+/* ------------------------------------ */
+/* Mathematics Section */
+.Mathematics-Header{
+  font-family: 'Atomic Age';
+  margin-left:15%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+.Mathematics-Container{
+  margin:0% 20%;
+}
+.img-compress{
+  height: 202px;
+}
+/* ---------------------------------------- */
+/* Web-Design */
+.Webdesign-Container{
+  margin:0% 20%;
+  margin-bottom: 5%;
+
+}
+.Webdesign-Header{
+  font-family: 'Atomic Age';
+  margin-left:15%;
+  color: #0d7377;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size:30px;
+}
+/* ---------------------------------------- */
+.bottom-container{
+  margin:0;
+  padding: 0;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: 'Atomic Age';
+  background-color:#e4f9f5;
+}
+.bottom-name{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 30px;
+  color: #0d7377;
+}
