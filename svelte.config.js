@@ -1,4 +1,4 @@
-import adapter from '@deno/svelte-adapter';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -12,7 +12,7 @@ const config = {
 	},
 
 	kit: {
-		// Official Deno adapter: `deno task build` emits a server to .deno-deploy/
+		// Official Cloudflare adapter: `vite build` emits a Pages-compatible worker to .svelte-kit/cloudflare/
 		adapter: adapter()
 	}
 };

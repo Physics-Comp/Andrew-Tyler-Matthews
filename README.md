@@ -1,7 +1,9 @@
 # Andrew Matthews — Personal Website
 
 Personal site: software engineering, data science, and an interest in computation, mathematics, neuroscience, and physics.
-Built with [SvelteKit](https://svelte.dev/docs/kit), styled with [Tailwind CSS v4](https://tailwindcss.com), served by [Deno](https://deno.com). The home page hero is a procedural brain with a firing hypergraph rendered in [Three.js](https://threejs.org).
+Built with [SvelteKit](https://svelte.dev/docs/kit), styled with [Tailwind CSS v4](https://tailwindcss.com), deployed to [Cloudflare Pages](https://pages.cloudflare.com). The home page hero is a procedural brain with a firing hypergraph rendered in [Three.js](https://threejs.org).
+
+Development uses [Deno](https://deno.com) as the local toolchain (`deno task ...`); the equivalent `npm run ...` scripts also work and are what Cloudflare Pages runs to build the site.
 
 ## Requirements
 
@@ -17,8 +19,8 @@ deno task dev       # start the dev server at http://localhost:5173
 ## Build and run
 
 ```sh
-deno task build     # outputs a Deno server to .deno-deploy/
-deno task start     # serves the production build with Deno on :8000
+deno task build     # outputs a Cloudflare Pages worker to .svelte-kit/cloudflare/
+deno task start     # serves the production build locally with Wrangler on :8788
 ```
 
 ## Other tasks
