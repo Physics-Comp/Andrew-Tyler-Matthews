@@ -1,0 +1,97 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Expose tokens as CSS custom properties too, for anything that can't use Sass.
+:root {
+	--color-mint: #{$color-mint};
+	--color-teal-dark: #{$color-teal-dark};
+	--color-teal: #{$color-teal};
+	--color-pink: #{$color-pink};
+	--color-gray: #{$color-gray};
+	--color-white: #{$color-white};
+	--color-text: #{$color-text};
+	--font-display: #{$font-display};
+	--font-mono: #{$font-mono};
+}
+
+// Minimal reset (replaces Bootstrap Reboot) ----------------------------------
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background-color: $color-gray;
+	color: $color-text;
+	font-family: $font-mono;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem;
+	font-family: $font-display;
+	font-weight: normal;
+	line-height: 1.2;
+	color: $color-teal-dark;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+a {
+	color: $color-teal-dark;
+	text-decoration: none;
+
+	&:hover {
+		color: $color-teal;
+	}
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+button {
+	font: inherit;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+// Shared utilities -----------------------------------------------------------
+.container {
+	width: 100%;
+	max-width: $container-max;
+	margin-inline: auto;
+	padding-inline: $gutter;
+}
+
+.btn {
+	@include button;
+}
+
+.rule {
+	@include dotted-rule(6%);
+}
+
+.sr-only {
+	@include visually-hidden;
+}
