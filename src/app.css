@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+/* legacy/ is not gitignored, so exclude its Bootstrap class names from source scanning. */
+@source not '../legacy';
+
+/* ---------------------------------------------------------------------------
+   Design tokens. Colors stay hex: the Three.js hero reads them at runtime via
+   getComputedStyle and THREE.Color can't parse oklch().
+--------------------------------------------------------------------------- */
+@theme {
+	--color-*: initial;
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-ink: #0f0f0f; /* page background */
+	--color-ink-2: #171717; /* raised panels */
+	--color-line: #2a2a2a; /* hairlines on dark */
+	--color-grid: #1a1a1a; /* faint background grid */
+	--color-paper: #e8e8e4; /* body text on dark */
+	--color-muted: #8a8a86; /* labels */
+	--color-sky: #8ccbf9; /* light full-bleed band */
+	--color-sky-ink: #0b1a2a; /* text on sky */
+	--color-sky-line: #4f86b3; /* hairlines on sky */
+	--color-signal: #f5714a; /* orange banner, hover */
+	--color-pulse: #3ec9c9; /* teal accent, firing color */
+	--color-dot-blue: #2f5bd4;
+	--color-dot-pink: #d9a0d8;
+	--color-dot-gold: #8f7a2e;
+
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--default-font-family: var(--font-mono);
+	--default-mono-font-family: var(--font-mono);
+
+	--tracking-label: 0.18em;
+
+	--text-display: clamp(2.5rem, 7vw, 7rem);
+	--text-display--line-height: 0.95;
+	--text-display--letter-spacing: -0.02em;
+	--text-display-sm: clamp(1.75rem, 4vw, 3.5rem);
+	--text-display-sm--line-height: 1.05;
+	--text-display-sm--letter-spacing: -0.01em;
+}
+
+@layer base {
+	html {
+		background-color: var(--color-ink);
+		color: var(--color-paper);
+		color-scheme: dark;
+		-webkit-font-smoothing: antialiased;
+		scroll-behavior: smooth;
+	}
+
+	::selection {
+		background-color: var(--color-signal);
+		color: var(--color-ink);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+}
+
+/* Small set of site utilities; everything else is stock Tailwind. */
+@utility label {
+	font-size: 0.6875rem;
+	line-height: 1.3;
+	letter-spacing: var(--tracking-label);
+	text-transform: uppercase;
+}
+
+@utility hairline {
+	border: 1px solid var(--color-line);
+}
+
+@utility hairline-t {
+	border-top: 1px solid var(--color-line);
+}
+
+@utility hairline-b {
+	border-bottom: 1px solid var(--color-line);
+}
+
+@utility bg-grid {
+	background-image:
+		linear-gradient(var(--color-grid) 1px, transparent 1px),
+		linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+	background-size: 4rem 4rem;
+}

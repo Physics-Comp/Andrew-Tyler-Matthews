@@ -1,0 +1,12 @@
+{
+	"nodeModulesDir": "auto",
+	"tasks": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"start": "deno run -A ./.deno-deploy/server.ts",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"format": "prettier --write .",
+		"lint": "prettier --check ."
+	}
+}
