@@ -1,195 +1,97 @@
 <script lang="ts">
+	import BrainHero from '$lib/components/BrainHero.svelte';
+	import ContactCta from '$lib/components/ContactCta.svelte';
+	import StatsRow from '$lib/components/StatsRow.svelte';
+	import { bio, headline, heroSubtitle, heroTitleLines, lenses } from '$lib/data/home';
 	import { site } from '$lib/data/site';
-	import { bio, skillHighlights } from '$lib/data/home';
+	import { stats } from '$lib/data/stats';
+	import { EDGE_COUNT, NODE_COUNT } from '$lib/three/config';
 </script>
 
 <svelte:head>
 	<title>{site.name}</title>
 </svelte:head>
 
-<section class="hero">
-	<img class="hero__atom hero__atom--left" src="/images/atom1.png" alt="" width="50" height="50" />
-	<img class="hero__atom hero__atom--right" src="/images/atom1.png" alt="" width="50" height="50" />
-	<h1 class="hero__name">I'm {site.firstName}</h1>
-	<p class="hero__intro">{site.tagline}</p>
-	<img class="hero__lab" src="/images/lab3.png" alt="" width="400" height="313" />
-</section>
-
-<section class="profile">
-	<img
-		class="profile__photo"
-		src="/images/headshot4.jpg"
-		alt="Portrait of {site.name}"
-		width="200"
-		height="200"
-	/>
-	<h2 class="profile__greeting">Hello.</h2>
-	<p class="profile__bio">{bio}</p>
-</section>
-
-<hr class="rule" />
-
-<section class="skills">
-	<h2 class="skills__title">My Skills</h2>
-	{#each skillHighlights as skill (skill.title)}
-		<div class="skill skill--image-{skill.imageSide}">
-			<img class="skill__image" src={skill.image} alt={skill.alt} width="250" height="250" />
-			<h3 class="skill__title">{skill.title}</h3>
-			<p class="skill__text">{skill.text}</p>
+<!-- Hero -->
+<section class="relative overflow-hidden bg-grid px-4 md:px-6">
+	<div class="grid min-h-[calc(100dvh-7rem)] grid-cols-12 items-center gap-x-8 gap-y-12 py-16">
+		<div class="col-span-12 lg:col-span-5">
+			<p class="label text-muted">Introduction</p>
+			<h1 class="mt-6 text-display uppercase">
+				{heroTitleLines[0]}<br />
+				{heroTitleLines[1]}
+			</h1>
+			<p class="mt-3 text-display-sm text-muted uppercase">{heroSubtitle}</p>
+			<p class="mt-10 label text-pulse">{site.interests.join(' · ')}</p>
+			<div class="mt-10 flex flex-wrap gap-4 label">
+				<a
+					href="/experience"
+					class="inline-block px-5 py-3 text-paper transition-colors hairline hover:border-signal hover:bg-signal hover:text-ink"
+				>
+					View experience →
+				</a>
+				<a
+					href="#contact"
+					class="inline-block px-2 py-3 text-muted transition-colors hover:text-signal"
+				>
+					Get in touch
+				</a>
+			</div>
 		</div>
-	{/each}
+		<div class="col-span-12 lg:col-span-7">
+			<BrainHero />
+		</div>
+	</div>
+	<div class="flex justify-between pb-6 label text-muted">
+		<p>
+			Fig. 01 — procedural cortex · n = {NODE_COUNT} nodes · {EDGE_COUNT} hyperedges · stochastic firing
+		</p>
+		<p class="hidden md:block">Scroll to explore ↓</p>
+	</div>
 </section>
 
-<hr class="rule" />
-
-<section class="contact">
-	<h2 class="contact__title">Get In Touch</h2>
-	<h3 class="contact__subtitle">I'm Available For Freelance Work</h3>
-	<p class="contact__text">
-		For inquires related to projects and freelance work please click the contact button
-	</p>
-	<a class="contact__button" href="mailto:{site.contactEmail}">
-		<img src="/images/mail_letter.png" alt="" width="20" height="20" />
-		Contact
-	</a>
+<!-- Statement + stats -->
+<section class="bg-sky px-4 py-24 text-sky-ink md:px-6 md:py-32">
+	<h2 class="max-w-5xl text-display-sm uppercase">{headline}</h2>
+	<div class="mt-20 border-t border-sky-line pt-12">
+		<StatsRow {stats} />
+	</div>
 </section>
 
-<style lang="scss">
-	@use '$lib/styles/variables' as *;
-	@use '$lib/styles/mixins' as *;
+<!-- About -->
+<section class="px-4 py-24 md:px-6 md:py-32">
+	<div class="grid gap-12 md:grid-cols-12">
+		<figure class="md:col-span-4">
+			<!-- Capped near the 200px source so the photo isn't upscaled into softness. -->
+			<div class="relative aspect-square w-full max-w-60 overflow-hidden bg-black hairline">
+				<img
+					src="/images/headshot4.jpg"
+					alt="Portrait of {site.name}"
+					width="200"
+					height="200"
+					class="h-full w-full object-cover"
+				/>
+				<!-- Soft vignette: fades the grey backdrop into the black frame without touching the face. -->
+				<div
+					class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_65%_at_50%_45%,transparent_55%,var(--color-black)_100%)]"
+				></div>
+			</div>
+			<figcaption class="mt-4 label text-muted">Fig. 02 — A. Matthews</figcaption>
+		</figure>
+		<div class="md:col-span-7 md:col-start-6">
+			<p class="label text-muted">About</p>
+			<h2 class="mt-6 text-display-sm uppercase">Hello.</h2>
+			<p class="mt-8 max-w-xl text-paper/80">{bio}</p>
+			<ol class="mt-16">
+				{#each lenses as lens (lens.title)}
+					<li class="py-8 hairline-t">
+						<h3 class="label text-paper">{lens.title}</h3>
+						<p class="mt-4 max-w-xl text-paper/70">{lens.text}</p>
+					</li>
+				{/each}
+			</ol>
+		</div>
+	</div>
+</section>
 
-	section {
-		text-align: center;
-	}
-
-	// Hero -------------------------------------------------------------------
-	.hero {
-		position: relative;
-		padding: 50px 1rem 0;
-		background-color: $color-mint;
-	}
-
-	.hero__atom {
-		position: absolute;
-		top: 4rem;
-
-		&--left {
-			left: 10%;
-		}
-
-		&--right {
-			right: 10%;
-		}
-
-		@include down($bp-md) {
-			display: none;
-		}
-	}
-
-	.hero__name {
-		@include display-heading($font-size-h1);
-		margin: 0 auto;
-	}
-
-	.hero__intro {
-		@include display-heading($font-size-h2);
-		margin: 0 auto;
-	}
-
-	.hero__lab {
-		display: block;
-		margin: 0 auto;
-	}
-
-	// Profile ----------------------------------------------------------------
-	.profile {
-		width: min(50%, 100% - 2rem);
-		margin: 0 auto;
-		padding-bottom: 30px;
-
-		@include down($bp-md) {
-			width: auto;
-			padding-inline: 1rem;
-		}
-	}
-
-	.profile__photo {
-		margin-top: 60px;
-		border-radius: 50%;
-	}
-
-	.profile__greeting {
-		@include display-heading;
-		padding-top: 20px;
-	}
-
-	// Skills -----------------------------------------------------------------
-	.skills {
-		padding-bottom: 5%;
-	}
-
-	.skills__title {
-		@include display-heading;
-	}
-
-	.skill {
-		width: 70%;
-		margin: 5% auto;
-		text-align: left;
-		line-height: 2;
-
-		&::after {
-			// clear the floated image
-			content: '';
-			display: table;
-			clear: both;
-		}
-
-		&--image-left .skill__image {
-			float: left;
-			margin-right: 30px;
-		}
-
-		&--image-right .skill__image {
-			float: right;
-			margin-left: 30px;
-			margin-bottom: 1rem;
-		}
-
-		@include down($bp-md) {
-			width: auto;
-			padding-inline: 1rem;
-
-			.skill__image {
-				float: none;
-				display: block;
-				margin: 0 auto 1rem;
-			}
-		}
-	}
-
-	.skill__title {
-		@include display-heading;
-	}
-
-	// Contact ----------------------------------------------------------------
-	.contact {
-		padding: 0 1rem 50px;
-	}
-
-	.contact__title {
-		@include display-heading;
-	}
-
-	.contact__subtitle {
-		@include display-heading($font-size-h3, $color-teal);
-	}
-
-	.contact__button {
-		@include button($color-teal, $color-teal-dark);
-		margin-top: 1.5em;
-		padding: 0.75em 2em;
-		font-family: $font-display;
-		font-size: 20px;
-	}
-</style>
+<ContactCta />

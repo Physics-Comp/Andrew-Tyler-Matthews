@@ -1,19 +1,23 @@
-export const bio =
-	"Hi there! My name is Andrew, and I'm a passionate problem solver who absolutely loves taking on complex tasks. I believe that with a positive attitude and unwavering dedication, any challenge can be overcome.";
+/** Hero headline, split across two display lines. Edit freely. */
+export const heroTitleLines = ['Curious by default,', 'software by trade.'];
 
-export const skillHighlights = [
+/** Hero subhead, sits under the title in a smaller display size. */
+export const heroSubtitle = 'Creativity is the constant. The medium just changes.';
+
+/** Big statement in the light band. Edit freely. */
+export const headline =
+	'Creative thinking means switching lenses. Software just happens to be where mine usually lands.';
+
+export const bio =
+	"Hi, I'm Andrew. To me, creativity is a habit: turn a problem over until it looks unfamiliar, then build something to test what you find. Software is the tool I reach for most, but the thinking behind it comes just as much from mathematics, physics, and neuroscience as it does from engineering.";
+
+export const lenses = [
 	{
-		title: 'Software Developer',
-		image: '/images/skills_pic.png',
-		alt: '',
-		imageSide: 'left',
-		text: 'Experienced software developer specializing in tailored web pages, mobile apps (Android/iOS), and custom desktop applications. Consults on product architecture and design. Dedicated to staying current with the latest advancements in software development and committed to delivering high-quality results.'
+		title: 'Cross-disciplinary by default',
+		text: 'I rarely stay inside one lens. A modeling problem might get solved with an idea from biology, a design question with something from physics. The overlap between fields is usually where I find the better answer.'
 	},
 	{
-		title: 'Data Science and Machine Learning',
-		image: '/images/calc.png',
-		alt: 'calculator',
-		imageSide: 'right',
-		text: 'As a skilled data scientist, I possess a broad range of expertise in analytical, statistical, and programming methodologies to gather, analyze, and interpret large data sets, allowing me to effectively communicate key insights. Leveraging these insights, I develop data-driven solutions that address complex business challenges.'
+		title: 'Building as a way of thinking',
+		text: "I build things: simulations, tools, small pieces of software. Building is how I finish forming an idea, not just how I ship one. The code is often a byproduct of the thinking, not the point of it."
 	}
 ] as const;

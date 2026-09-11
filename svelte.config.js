@@ -3,7 +3,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Compiles <style lang="scss"> and <script lang="ts"> blocks via Vite.
+	// Compiles <script lang="ts"> via Vite. Styling is Tailwind (src/app.css), so no CSS preprocessing.
 	preprocess: vitePreprocess(),
 
 	compilerOptions: {

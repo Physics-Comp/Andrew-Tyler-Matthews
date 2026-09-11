@@ -1,156 +1,110 @@
 <script lang="ts">
-	import PageTitle from '$lib/components/PageTitle.svelte';
-	import StarRating from '$lib/components/StarRating.svelte';
-	import { education, jobs, skillColumns } from '$lib/data/experience';
+	import AutomatonPanel from '$lib/components/AutomatonPanel.svelte';
+	import ContactCta from '$lib/components/ContactCta.svelte';
+	import RoleDrawer from '$lib/components/RoleDrawer.svelte';
+	import TenureRadial from '$lib/components/TenureRadial.svelte';
+	import TenureSwarm from '$lib/components/TenureSwarm.svelte';
+	import {
+		education,
+		maxSkillYears,
+		profile,
+		roleGroups,
+		skillCategories
+	} from '$lib/data/experience';
+	import { site } from '$lib/data/site';
+
+	const roleKey = (role: { title: string; company: string }) => `${role.company}|${role.title}`;
+
+	/** Which drawers are open, keyed by company and title. Only the current role starts open. */
+	let openRoles = $state<Record<string, boolean>>(
+		Object.fromEntries(
+			roleGroups.flatMap((group, g) =>
+				group.roles.map((role, r) => [roleKey(role), g === 0 && r === 0])
+			)
+		)
+	);
+
+	function allOpen(group: (typeof roleGroups)[number]) {
+		return group.roles.every((role) => openRoles[roleKey(role)]);
+	}
+
+	function setGroup(group: (typeof roleGroups)[number], open: boolean) {
+		for (const role of group.roles) openRoles[roleKey(role)] = open;
+	}
 </script>
 
 <svelte:head>
-	<title>Experience</title>
+	<title>Experience — {site.name}</title>
 </svelte:head>
 
-<PageTitle title="Background" />
-
-<h2 class="section-heading">Education</h2>
-<div class="entries">
-	{#each education as entry (entry.school)}
-		<div class="entry">
-			<div class="entry__meta">
-				<h3 class="entry__title">{entry.school}</h3>
-				<p class="entry__dates">{entry.dates}</p>
-			</div>
-			<div class="entry__body">
-				<p>{entry.description}</p>
-			</div>
+<!-- Header -->
+<section class="bg-grid px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
+	<div class="grid gap-10 md:grid-cols-12">
+		<div class="md:col-span-7">
+			<p class="label text-muted">Experience</p>
+			<h1 class="mt-6 text-display uppercase">Background<br />& abilities</h1>
 		</div>
-	{/each}
-</div>
+		<p class="max-w-md text-paper/75 md:col-span-4 md:col-start-9 md:pt-12">{profile}</p>
+	</div>
+	<div class="mt-16 md:mt-24">
+		<AutomatonPanel />
+	</div>
+</section>
 
-<hr class="separator" />
-
-<h2 class="section-heading">Work Experience</h2>
-<div class="entries">
-	{#each jobs as job (job.title + job.company)}
-		<div class="entry">
-			<div class="entry__meta">
-				<h3 class="entry__title">{job.title}</h3>
-				<p class="entry__dates">{job.dates}</p>
-			</div>
-			<div class="entry__body">
-				<h4 class="entry__subtitle">{job.company}</h4>
-				<p>{job.description}</p>
-			</div>
+<!-- Roles -->
+{#each roleGroups as group, g (group.heading)}
+	<section class={['px-4 pb-24 md:px-6', g === 0 && 'pt-16 md:pt-24']}>
+		<div class="flex items-end justify-between gap-4 pb-4 hairline-b">
+			<p class="label text-muted">
+				{group.heading}
+			</p>
+			<button
+				type="button"
+				class="cursor-pointer label text-muted transition-colors hover:text-signal"
+				onclick={() => setGroup(group, !allOpen(group))}
+			>
+				{allOpen(group) ? 'Collapse all' : 'Expand all'}
+			</button>
 		</div>
-	{/each}
-</div>
+		<ol>
+			{#each group.roles as role (roleKey(role))}
+				<RoleDrawer {role} bind:open={openRoles[roleKey(role)]} />
+			{/each}
+		</ol>
+	</section>
+{/each}
 
-<hr class="separator" />
+<!-- Education: one row, same rhythm as the roles -->
+<section class="px-4 pb-24 md:px-6">
+	<p class="pb-4 label text-muted hairline-b">Education</p>
+	<ol>
+		{#each education as entry (entry.school)}
+			<li class="grid gap-4 py-8 hairline-b md:grid-cols-[1fr_2fr] md:gap-8">
+				<div>
+					<h2 class="label text-paper">{entry.school}</h2>
+					<p class="mt-2 label text-pulse">{entry.degree} {entry.field}</p>
+					<p class="mt-2 label text-muted">{entry.location}</p>
+				</div>
+				<p class="max-w-2xl text-paper/75">{entry.description}</p>
+			</li>
+		{/each}
+	</ol>
+</section>
 
-<PageTitle title="Abilities" />
+<!-- Technical expertise: every tool by years of experience, grouped by category -->
+<section class="px-4 pb-24 md:px-6 md:pb-32">
+	<div class="flex flex-wrap items-end justify-between gap-4 pb-4 hairline-b">
+		<p class="label text-muted">Technical expertise</p>
+		<p class="label text-muted">Years of hands-on experience · longest {maxSkillYears}</p>
+	</div>
+	<!-- Radial bars from ~480px up (decorative for assistive tech); the beeswarm is the
+	     narrow-screen layout and stays available to screen readers alongside the chart. -->
+	<div class="mt-10 hidden min-[30rem]:block">
+		<TenureRadial categories={skillCategories} maxYears={maxSkillYears} />
+	</div>
+	<div class="mt-10 min-[30rem]:sr-only">
+		<TenureSwarm categories={skillCategories} maxYears={maxSkillYears} />
+	</div>
+</section>
 
-<h2 class="section-heading section-heading--skills">Skills</h2>
-<div class="skills">
-	{#each skillColumns as column, i (i)}
-		<table class="skills__table">
-			<tbody>
-				{#each column as skill (skill.name)}
-					<tr>
-						<th scope="row">{skill.name}</th>
-						<td><StarRating value={skill.rating} label={skill.name} /></td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-	{/each}
-</div>
-
-<style lang="scss">
-	@use '$lib/styles/variables' as *;
-	@use '$lib/styles/mixins' as *;
-
-	.section-heading {
-		@include display-heading;
-		margin: 0 10%;
-		padding: 25px 0;
-
-		&--skills {
-			margin: 0 15%;
-		}
-	}
-
-	.separator {
-		width: 100%;
-		margin: 0;
-		border: none;
-		border-top: 1px solid $color-border;
-	}
-
-	// Two-column entry (was Bootstrap .row / .col-sm-6) ------------------------
-	.entries {
-		margin: 0 13%;
-
-		@include down($bp-md) {
-			margin: 0 1rem;
-		}
-	}
-
-	.entry {
-		display: grid;
-		gap: 1rem 2rem;
-		padding-bottom: 100px;
-
-		@include up($bp-sm) {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		@include down($bp-md) {
-			padding-bottom: 3rem;
-		}
-	}
-
-	.entry__title {
-		@include display-heading($font-size-h4);
-	}
-
-	.entry__subtitle {
-		@include display-heading(15px, $color-text);
-	}
-
-	.entry__dates {
-		font-family: $font-display;
-		font-size: 15px;
-	}
-
-	.entry__body p {
-		font-family: $font-mono;
-	}
-
-	// Skills -----------------------------------------------------------------
-	.skills {
-		display: grid;
-		gap: 2rem 4rem;
-		margin: 0 18% 50px;
-
-		@include up($bp-sm) {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		@include down($bp-md) {
-			margin: 0 1rem 50px;
-		}
-	}
-
-	.skills__table {
-		width: 100%;
-
-		th {
-			padding: 0.15rem 1.5rem 0.15rem 0;
-			text-align: left;
-			font-weight: normal;
-			font-family: $font-mono;
-		}
-
-		td {
-			padding: 0.15rem 0;
-		}
-	}
-</style>
+<ContactCta />

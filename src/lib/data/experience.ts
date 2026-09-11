@@ -1,84 +1,245 @@
+// Content sourced from Andrew's resume (Skywell version, 2026).
+
 export interface Education {
 	school: string;
-	dates: string;
+	shortName: string;
+	location: string;
+	degree: string;
+	field: string;
 	description: string;
 }
 
-export interface Job {
+export interface Role {
 	title: string;
 	company: string;
+	location?: string;
 	dates: string;
-	description: string;
+	highlights: string[];
+}
+
+export interface RoleGroup {
+	heading: string;
+	roles: Role[];
 }
 
 export interface Skill {
 	name: string;
-	/** Proficiency out of 5 */
-	rating: number;
+	/** Years of hands-on experience */
+	years: number;
 }
+
+export interface SkillCategory {
+	name: string;
+	/** Short label for tight spaces such as the radial chart's sector arcs */
+	short: string;
+	skills: Skill[];
+}
+
+/** First year counted in "N+ years of experience"; the 2026 resume says 9+. */
+export const careerStartYear = 2017;
+
+export const profile =
+	'Lead software engineer with 9+ years of experience designing and delivering full-stack applications, APIs, automation systems, and data-intensive products. Leads technical initiatives, mentors engineers, and combines systems architecture, applied AI, and UI/UX principles to turn complex data and workflows into intuitive user experiences. Experience spans financial services, intellectual property, healthcare, energy, and education.';
 
 export const education: Education[] = [
 	{
-		school: 'University of Colorado at Boulder',
-		dates: 'Aug. 2016 - 2019',
+		school: 'University of Colorado Boulder',
+		shortName: 'CU Boulder',
+		location: 'Boulder, CO',
+		degree: 'B.A.',
+		field: 'Applied Physics',
 		description:
-			'I have obtained a major in applied physics complemented with a minor in applied mathematics, focusing on mathematical computation and programming. Through my education, I have acquired a high level of proficiency in utilizing theoretical mathematical concepts to solve practical problems across a range of fields.'
+			'Focused on mathematical computation and programming: applying theoretical concepts to practical problems across a range of fields.'
 	}
 ];
 
-export const jobs: Job[] = [
+export const roleGroups: RoleGroup[] = [
 	{
-		title: 'Software Engineer',
-		company: 'FSC Edge',
-		dates: 'Apr. 2022 - Present',
-		description:
-			'I have developed deep learning tools to automate the extraction of patent information. Additionally, I have designed and developed full-stack applications, implementing feature enhancements to optimize user experience. Moreover, I have developed a robust REST API for the USPTO to improve patent search and validation processes.'
+		heading: 'Professional experience',
+		roles: [
+			{
+				title: 'Lead Engineer',
+				company: 'American Century Investments',
+				location: 'Kansas City, MO',
+				dates: 'June 2023 – Present',
+				highlights: [
+					'Lead system and application architecture, partnering with stakeholders to translate business initiatives into scalable technical implementations while mentoring engineers through design and development.',
+					'Lead an enterprise AI enablement initiative integrating AI throughout the software development lifecycle, including the design and implementation of internal AI-powered tooling.',
+					'Strengthened customer portal security and reduced initial response time by 90%, from 7 seconds to 0.7 seconds.',
+					'Developed a customer segmentation and analytics application that enables stakeholders to identify and better understand customer segments.',
+					'Built reusable development tooling adopted across the organization to standardize engineering workflows and improve developer productivity.'
+				]
+			},
+			{
+				title: 'Senior Software Engineer',
+				company: 'FSC Edge',
+				location: 'Omaha, NE',
+				dates: '2021 – 2023',
+				highlights: [
+					'Developed and deployed a deep-learning OCR pipeline to automate the extraction of patent information, using PySpark to support scalable data processing.',
+					'Designed and deployed a REST API for the USPTO that improved patent search and validation workflows.',
+					'Mentored junior and mid-level developers through code reviews and technical guidance, while leading training for operations and production teams.'
+				]
+			},
+			{
+				title: 'Software Engineer → Mid-Level Software Engineer',
+				company: 'PhET Interactive Simulations',
+				location: 'Boulder, CO',
+				dates: '2019 – 2021',
+				highlights: [
+					'Developed physics-engine components for interactive simulations in quantum mechanics and electromagnetism, translating mathematical models into accurate, responsive software behavior.',
+					'Modernized legacy Flash simulations using Java for backend functionality and JavaScript and HTML5 for the front end, improving maintainability and platform compatibility.',
+					"Contributed to PhET's web and mobile platforms, enabling interactive simulations to be deployed consistently across devices."
+				]
+			}
+		]
 	},
 	{
-		title: 'Lead Software Engineer',
-		company: 'Lex Fridman Podcast',
-		dates: 'Feb. 2022 - Jan. 2023',
-		description:
-			'Created moderation bots for social media platforms to help streamline content moderation. Developed plugins to improve video editing workflow in Adobe Premiere. Directed and implemented automation tasks for the podcast to help the team be more productive.'
+		heading: 'Entrepreneurial leadership',
+		roles: [
+			{
+				title: 'Owner and Chief Technology Officer',
+				company: 'Hartland Harvest',
+				dates: '2025 – Present',
+				highlights: [
+					'Lead a team of four employees building digital infrastructure that connects growers, markets, buyers, and communities across local food systems.',
+					"Own the platform's architecture and development, encompassing payments, communication, product discovery, inventory availability, and role-specific operational tools.",
+					'Define product vision and technical direction through direct customer engagement, translating the needs of farmers, markets, grocers, and distributors into intuitive product experiences.',
+					'Lead marketing, outreach, and customer relationships to guide adoption and ensure the platform addresses real operational challenges.'
+				]
+			}
+		]
 	},
 	{
-		title: 'Software Engineer',
-		company: 'PhET Simulations',
-		dates: 'May. 2020 - Apr. 2022',
-		description:
-			'I improved the user interface of the PhET mobile and web platforms, created admin tools and dashboards, and developed physics simulations in quantum mechanics and electromagnetism.'
-	},
-	{
-		title: 'Freelance Software Developer',
-		company: 'Boulder Colorado',
-		dates: 'Aug. 2015 - Present',
-		description:
-			'As a developer, I specialize in creating tailored solutions for businesses. This includes custom web pages for small to medium-sized businesses, mobile apps for Android and iOS, and custom desktop applications to meet diverse business needs. In addition to my development work, I offer consultation services in product architecture and design.'
+		heading: 'Selected consulting engagements',
+		roles: [
+			{
+				title: 'Data Scientist Consultant',
+				company: 'AES',
+				dates: '2022 – 2023',
+				highlights: [
+					'Evaluated and redesigned the architecture of an R-based linear-optimization service used to manage regional battery operating cycles, then led its migration to Python.',
+					'Designed and implemented a custom Python optimization library to reproduce required maximization capabilities that were unavailable in an equivalent Python package.',
+					'Built a comprehensive test suite to validate functional parity and performance against the legacy R application, while improving the architecture so other applications could integrate with the library.',
+					'Advised and trained engineering teams on Agile development practices, expanding the engagement beyond its original technical scope.'
+				]
+			},
+			{
+				title: 'Full-Stack Software Engineer Consultant',
+				company: 'MMIT',
+				dates: '2021 – 2022',
+				highlights: [
+					'Architected and developed a data-ingestion application that automatically collected, parsed, and aggregated health-plan documents from insurance-provider websites.',
+					'Built a customer-facing dashboard that enabled hospitals and clinics to analyze aggregated plan data and determine insurance coverage for patient medications and treatments.',
+					"Refined the dashboard's UI/UX through user-group feedback and A/B testing, using observed behavior to guide evidence-based interface improvements."
+				]
+			}
+		]
 	}
 ];
 
-/** Two columns of skills, matching the original layout. */
-export const skillColumns: Skill[][] = [
-	[
-		{ name: 'Python', rating: 5 },
-		{ name: 'Java', rating: 5 },
-		{ name: 'C++', rating: 4 },
-		{ name: 'JavaScript', rating: 4 },
-		{ name: 'React.js', rating: 5 },
-		{ name: 'React Native', rating: 4 },
-		{ name: 'Node.js', rating: 4 },
-		{ name: 'Express.js', rating: 4 },
-		{ name: 'MatLab', rating: 4 }
-	],
-	[
-		{ name: 'R', rating: 5 },
-		{ name: 'Tableau', rating: 4 },
-		{ name: 'SQL', rating: 4 },
-		{ name: 'NoSQL', rating: 4 },
-		{ name: 'Django', rating: 4 },
-		{ name: 'Flask', rating: 4 },
-		{ name: 'MongoDB', rating: 4 },
-		{ name: 'Jenkins', rating: 3 },
-		{ name: 'Docker', rating: 2 }
-	]
+/** Every role across all groups, in display order. */
+export const roles: Role[] = roleGroups.flatMap((group) => group.roles);
+
+export const skillCategories: SkillCategory[] = [
+	{
+		name: 'Programming languages',
+		short: 'Languages',
+		skills: [
+			{ name: 'Java', years: 12 },
+			{ name: 'Python', years: 10 },
+			{ name: 'C++', years: 8 },
+			{ name: 'JavaScript', years: 7 },
+			{ name: 'Go', years: 2 },
+			{ name: 'Rust', years: 1 }
+		]
+	},
+	{
+		name: 'Web & UI frameworks',
+		short: 'Web & UI',
+		skills: [
+			{ name: 'React / React Native', years: 8 },
+			{ name: 'Svelte', years: 4 },
+			{ name: 'Astro', years: 2 },
+			{ name: 'Angular', years: 1 }
+		]
+	},
+	{
+		name: 'Backend frameworks',
+		short: 'Backend',
+		skills: [
+			{ name: 'Spring Boot', years: 8 },
+			{ name: 'Express', years: 6 },
+			{ name: 'Django', years: 6 },
+			{ name: 'FastAPI', years: 6 },
+			{ name: 'Hono', years: 2 }
+		]
+	},
+	{
+		name: 'ML & accelerated computing',
+		short: 'ML & GPU',
+		skills: [
+			{ name: 'Keras', years: 4 },
+			{ name: 'TensorFlow', years: 4 },
+			{ name: 'CUDA', years: 3 }
+		]
+	},
+	{
+		name: 'Cloud platforms',
+		short: 'Cloud',
+		skills: [
+			{ name: 'AWS', years: 8 },
+			{ name: 'Cloudflare', years: 4 },
+			{ name: 'GCP', years: 2 },
+			{ name: 'Azure', years: 1 }
+		]
+	},
+	{
+		name: 'Engineering platforms & DevOps',
+		short: 'DevOps',
+		skills: [
+			{ name: 'Git', years: 10 },
+			{ name: 'Docker', years: 8 },
+			{ name: 'Bash scripting', years: 8 },
+			{ name: 'GitHub Actions', years: 4 },
+			{ name: 'OpenShift', years: 3 },
+			{ name: 'Terraform', years: 2 },
+			{ name: 'Jenkins', years: 2 }
+		]
+	},
+	{
+		name: 'Observability',
+		short: 'Monitoring',
+		skills: [
+			{ name: 'Grafana', years: 5 },
+			{ name: 'DataDog', years: 3 },
+			{ name: 'OpenSearch Kibana', years: 2 }
+		]
+	},
+	{
+		name: 'Databases',
+		short: 'Databases',
+		skills: [
+			{ name: 'PostgreSQL', years: 8 },
+			{ name: 'MongoDB', years: 6 },
+			{ name: 'SQLite', years: 5 },
+			{ name: 'Couchbase', years: 4 },
+			{ name: 'IBM Db2', years: 3 }
+		]
+	},
+	{
+		name: 'Design & prototyping',
+		short: 'Design',
+		skills: [
+			{ name: 'Figma', years: 5 },
+			{ name: 'Penpot', years: 3 },
+			{ name: 'Photoshop', years: 3 }
+		]
+	}
 ];
+
+/** Every skill across all categories. */
+export const skills: Skill[] = skillCategories.flatMap((category) => category.skills);
+
+/** Longest tenure with any tool. */
+export const maxSkillYears = Math.max(...skills.map((skill) => skill.years));

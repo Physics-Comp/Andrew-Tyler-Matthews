@@ -1,5 +1,6 @@
 <script lang="ts">
-	import '$lib/styles/global.scss';
+	import '../app.css';
+	import TopBanner from '$lib/components/TopBanner.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { site } from '$lib/data/site';
@@ -11,6 +12,7 @@
 	<meta name="description" content={site.description} />
 </svelte:head>
 
+<TopBanner />
 <Nav />
 <main>
 	{@render children()}
