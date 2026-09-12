@@ -2,7 +2,7 @@
 	import BrainHero from '$lib/components/BrainHero.svelte';
 	import ContactCta from '$lib/components/ContactCta.svelte';
 	import StatsRow from '$lib/components/StatsRow.svelte';
-	import { bio, headline, heroSubtitle, heroTitleLines, lenses } from '$lib/data/home';
+	import { bio, headline, heroSubtitle, heroTitle, heroValues, lenses } from '$lib/data/home';
 	import { site } from '$lib/data/site';
 	import { stats } from '$lib/data/stats';
 	import { EDGE_COUNT, NODE_COUNT } from '$lib/three/config';
@@ -13,57 +13,57 @@
 </svelte:head>
 
 <!-- Hero -->
-<section class="relative overflow-hidden bg-grid px-4 md:px-6">
-	<div class="grid min-h-[calc(100dvh-7rem)] grid-cols-12 items-center gap-x-8 gap-y-12 py-16">
-		<div class="col-span-12 lg:col-span-5">
-			<p class="label text-muted">Introduction</p>
-			<h1 class="mt-6 text-display uppercase">
-				{heroTitleLines[0]}<br />
-				{heroTitleLines[1]}
-			</h1>
-			<p class="mt-3 text-display-sm text-muted uppercase">{heroSubtitle}</p>
-			<p class="mt-10 label text-pulse">{site.interests.join(' · ')}</p>
-			<div class="mt-10 flex flex-wrap gap-4 label">
-				<a
-					href="/experience"
-					class="inline-block px-5 py-3 text-paper transition-colors hairline hover:border-signal hover:bg-signal hover:text-ink"
-				>
-					View experience →
-				</a>
-				<a
-					href="#contact"
-					class="inline-block px-2 py-3 text-muted transition-colors hover:text-signal"
-				>
-					Get in touch
-				</a>
+<section class="relative overflow-hidden bg-grid px-4 md:px-6 lg:px-10 xl:px-16">
+	<div class="page-container">
+		<div class="grid min-h-[calc(100dvh-7rem)] grid-cols-12 items-center gap-x-8 gap-y-12 py-16">
+			<div class="col-span-12 lg:col-span-5">
+				<h1 class="text-display uppercase">{heroTitle}</h1>
+				<p class="mt-3 text-display-sm text-muted uppercase">{heroSubtitle}</p>
+				<p class="mt-10 label text-pulse">{heroValues.join(' · ')}</p>
+				<div class="mt-10 flex flex-wrap gap-4 label">
+					<a
+						href="/experience"
+						class="inline-block px-5 py-3 text-paper transition-colors hairline hover:border-signal hover:bg-signal hover:text-ink"
+					>
+						View experience →
+					</a>
+					<a
+						href="#contact"
+						class="inline-block px-2 py-3 text-muted transition-colors hover:text-signal"
+					>
+						Get in touch
+					</a>
+				</div>
+			</div>
+			<div class="col-span-12 lg:col-span-7">
+				<BrainHero />
 			</div>
 		</div>
-		<div class="col-span-12 lg:col-span-7">
-			<BrainHero />
+		<div class="flex justify-between pb-6 label text-muted">
+			<p>
+				Fig. 01 — procedural cortex · n = {NODE_COUNT} nodes · {EDGE_COUNT} hyperedges · stochastic firing
+			</p>
+			<p class="hidden md:block">Scroll to explore ↓</p>
 		</div>
-	</div>
-	<div class="flex justify-between pb-6 label text-muted">
-		<p>
-			Fig. 01 — procedural cortex · n = {NODE_COUNT} nodes · {EDGE_COUNT} hyperedges · stochastic firing
-		</p>
-		<p class="hidden md:block">Scroll to explore ↓</p>
 	</div>
 </section>
 
 <!-- Statement + stats -->
-<section class="bg-sky px-4 py-24 text-sky-ink md:px-6 md:py-32">
-	<h2 class="max-w-5xl text-display-sm uppercase">{headline}</h2>
-	<div class="mt-20 border-t border-sky-line pt-12">
-		<StatsRow {stats} />
+<section class="bg-sky px-4 py-24 text-sky-ink md:px-6 md:py-32 lg:px-10 xl:px-16">
+	<div class="page-container">
+		<h2 class="max-w-5xl text-display-sm uppercase">{headline}</h2>
+		<div class="mt-20 border-t border-sky-line pt-12">
+			<StatsRow {stats} />
+		</div>
 	</div>
 </section>
 
 <!-- About -->
-<section class="px-4 py-24 md:px-6 md:py-32">
-	<div class="grid gap-12 md:grid-cols-12">
+<section class="px-4 py-24 md:px-6 md:py-32 lg:px-10 xl:px-16">
+	<div class="page-container grid gap-12 md:grid-cols-12">
 		<figure class="md:col-span-4">
-			<!-- Capped near the 200px source so the photo isn't upscaled into softness. -->
-			<div class="relative aspect-square w-full max-w-60 overflow-hidden bg-black hairline">
+			<!-- Source is only 200px; enlarging past this trades a little sharpness for presence. -->
+			<div class="relative aspect-square w-full max-w-80 overflow-hidden bg-black hairline">
 				<img
 					src="/images/headshot4.jpg"
 					alt="Portrait of {site.name}"

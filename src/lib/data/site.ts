@@ -1,7 +1,6 @@
 export const site = {
 	name: 'Andrew Matthews',
 	firstName: 'Andrew',
-	interests: ['Computation', 'Mathematics', 'Neuroscience', 'Physics'],
 	description: 'Personal website of Andrew Matthews: software engineer, data scientist, creator.',
 	contactEmail: 'andrew.matthews31@gmail.com',
 	businessEmail: 'andrew.tyler.matthews.biz@gmail.com'

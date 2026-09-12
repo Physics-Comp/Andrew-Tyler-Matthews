@@ -10,7 +10,10 @@
 </script>
 
 <header class="sticky top-0 z-20 bg-ink/90 backdrop-blur hairline-b">
-	<nav class="flex flex-wrap items-center justify-between px-4 py-4 md:px-6" aria-label="Primary">
+	<nav
+		class="page-container flex flex-wrap items-center justify-between px-4 py-4 md:px-6 lg:px-10 xl:px-16"
+		aria-label="Primary"
+	>
 		<a
 			href="/"
 			class="label text-paper transition-colors hover:text-signal"
