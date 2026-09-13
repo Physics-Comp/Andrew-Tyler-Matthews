@@ -65,8 +65,8 @@ export const roleGroups: RoleGroup[] = [
 				highlights: [
 					'Lead system and application architecture, partnering with stakeholders to translate business initiatives into scalable technical implementations while mentoring engineers through design and development.',
 					'Lead an enterprise AI enablement initiative integrating AI throughout the software development lifecycle, including the design and implementation of internal AI-powered tooling.',
-					'Strengthened customer portal security and reduced initial response time by 90%, from 7 seconds to 0.7 seconds.',
-					'Developed a customer segmentation and analytics application that enables stakeholders to identify and better understand customer segments.',
+					'Enhanced the security and performance of the mobile and web portal, improving response times by 60%.',
+					'Enhanced application visibility across multiple teams, using the resulting data to better understand customer demographics and behavior.',
 					'Built reusable development tooling adopted across the organization to standardize engineering workflows and improve developer productivity.'
 				]
 			},
